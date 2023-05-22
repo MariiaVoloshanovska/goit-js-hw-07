@@ -25,9 +25,7 @@ const evImage = (e) => {
   alt="${e.target.alt}" width="800" height="600">`,
     // видалити "keydown" з вікна
     {
-      onClose: (instance) => {
-        window.removeEventListener("keydown", сloseWinEscape);
-      },
+      onClose: (instance) => newGallery.removeEventListener("keydown", сloseWinEscape),
     }
   );
   // callback (задкриття по кнопці "Esc" )
@@ -35,9 +33,11 @@ const evImage = (e) => {
     if (e.code === "Escape") {
       instance.close();
     }
-    return;
   }
   instance.show();
+  if (instance.visible()) {
+    newGallery.addEventListener("keydown", сloseWinEscape);
+  }
 };
 
 newGallery.addEventListener("click", evImage);
