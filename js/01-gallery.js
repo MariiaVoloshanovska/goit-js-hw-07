@@ -20,7 +20,7 @@ const evImage = (e) => {
     return;
   }
 
-  //open modal window (show)
+  //open modal window (show) from new galery
   const instance = basicLightbox.create(`<img src="${e.target.dataset.source}" alt="${e.target.alt}" width="800" height="600">`);
   instance.show();
 
